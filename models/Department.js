@@ -130,11 +130,11 @@ var Department =
     return db.query("CALL Search_Department_User_Typeahead(@Branch_Id_ :=?,@Department_Id_ :=?,@Users_Name_ :=?)",
       [Branch_Id_, Department_Id_, Users_Name_], callback);
   },
-  Search_Department_User_Typeahead_student: function (Branch_Id_, Department_Id_, Users_Name_, Login_User_Id_, callback) {
+  Search_Department_User_Typeahead_student: function (Branch_Id_, Department_Id_, Login_User_Id_, Users_Name_, callback) {
     if (Users_Name_ === 'undefined' || Users_Name_ === '' || Users_Name_ === undefined)
       Users_Name_ = '';
-    return db.query("CALL Search_Department_User_Typeahead_student(@Branch_Id_ :=?,@Department_Id_ :=?,@Users_Name_ :=?,@Login_User_Id_ :=?)",
-      [Branch_Id_, Department_Id_, Users_Name_, Login_User_Id_], callback);
+    return db.query("CALL Search_Department_User_Typeahead_student(@Branch_Id_ :=?,@Department_Id_ :=?,@Login_User_Id_ :=?,@Users_Name_ :=?)",
+      [Branch_Id_, Department_Id_, Login_User_Id_, Users_Name_], callback);
   },
 
   Search_DSEUser_Typeahead: function (Users_Name_, callback) {

@@ -319,10 +319,12 @@ router.get('/Search_Department_User_Typeahead/:Branch_Id_?/:Department_Id_?/:Use
 
   }
 });
-router.get('/Search_Department_User_Typeahead_student/:Branch_Id_?/:Department_Id_?/:Users_Name_?/:Login_User_Id_?', function (req, res, next) {
+router.get('/Search_Department_User_Typeahead_student/:Branch_Id_?/:Department_Id_?/:Login_User_Id_?/:Users_Name_?', function (req, res, next) {
   try {
-    Department.Search_Department_User_Typeahead_student(req.params.Branch_Id_, req.params.Department_Id_, req.params.Users_Name_, req.params.Login_User_Id_, function (err, rows) {
+    Department.Search_Department_User_Typeahead_student(req.params.Branch_Id_, req.params.Department_Id_, req.params.Login_User_Id_, req.params.Users_Name_, function (err, rows) {
       if (err) {
+        console.log(err);
+
         res.json(err);
       }
       else {
@@ -331,6 +333,8 @@ router.get('/Search_Department_User_Typeahead_student/:Branch_Id_?/:Department_I
     });
   }
   catch (e) {
+    console.log(e);
+
   }
   finally {
 
